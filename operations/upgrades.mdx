@@ -1,0 +1,33 @@
+---
+title: "Upgrades"
+description: "Upgrade the application without confusing configuration, package, and checkpoint state."
+---
+
+# Upgrades
+
+Upgrade the application and database schema as a controlled operation.
+
+## Before upgrade
+
+1. Take a PostgreSQL backup.
+2. Save the current Git ref and configuration.
+3. Confirm free disk and container health.
+4. Review release/current-state notes for schema or behavior changes.
+
+## Database schema
+
+The product uses Alembic migrations. Runtime startup in the container executes `alembic upgrade head` in supported stack paths.
+
+## Marketplace upgrade is different
+
+Marketplace package upgrade changes integration package/catalog state. It must not silently:
+
+- modify a running Stream
+- create credentials
+- enable a Stream
+- advance checkpoints
+- rewind delivered data on rollback
+
+## Stable versus development
+
+Do not treat the development branch as a drop-in stable upgrade. See [Release Status](/reference/release-status) for the repository state discovered during this documentation audit.

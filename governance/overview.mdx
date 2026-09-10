@@ -1,0 +1,33 @@
+---
+title: "Governance"
+description: "Optional data-control capabilities without exposing internal engines as the user model."
+---
+
+# Governance
+
+Governance is an optional **data-control capability**, not a standalone compliance platform.
+
+Users define intent:
+
+```text
+Is the data sensitive?
+How should it be protected?
+May it be delivered?
+What happens when a rule is violated?
+```
+
+The runtime applies Protection, Classification, Policy, Quarantine, and Replay behavior without requiring operators to think in terms of internal engine names.
+
+## Current operational surfaces
+
+The current Web UI includes governance Dashboard, Operations, Violations, Quarantine, Audit, Approvals, Replay, Notifications, and Governance Workspace routes.
+
+## Route-aware behavior
+
+A shared/default intent can belong to the Stream configuration while effective destination-specific behavior is Route-aware.
+
+## Important limits
+
+- Governance Workspace is a read-only MVP for some workflows.
+- The Workspace fan-out pattern scales as multiple API calls per Route and is not the preferred daily fleet dashboard at high route counts.
+- SMTP notification delivery is disabled until SMTP is configured.

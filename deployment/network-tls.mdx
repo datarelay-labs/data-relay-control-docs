@@ -1,0 +1,43 @@
+---
+title: "Network, Reverse Proxy & TLS"
+description: "Published ports, TLS termination, proxy trust, and DNS boundaries."
+---
+
+# Network, Reverse Proxy & TLS
+
+## Production-style stack
+
+`deploy/docker-compose.https.yml` exposes only the reverse proxy. PostgreSQL and the API are not published directly to the host.
+
+Default production-oriented entry ports are 80 and 443. Local evaluation can use 18080 and 18443.
+
+## TLS
+
+Generate local self-signed material with:
+
+```bash
+GDC_TLS_OUTPUT_DIR=deploy/tls ./scripts/release/generate-self-signed-cert.sh
+```
+
+The generator writes:
+
+```text
+deploy/tls/server.crt
+deploy/tls/server.key
+```
+
+Use a trusted certificate for real public deployment.
+
+## Reverse-proxy headers
+
+`GDC_TRUST_PROXY_HEADERS` controls whether forwarded headers are honored. The current production-style Compose stack enables proxy-header trust and sets trusted hosts to `*` because the API is intended to sit behind its bundled reverse proxy.
+
+If you change the topology, restrict the trusted proxy boundary accordingly.
+
+## DNS
+
+Data Relay Control does not require a product-specific DNS protocol. Point the desired hostname at the reverse proxy using normal DNS and TLS configuration.
+
+## Firewall
+
+Expose only the browser/reverse-proxy ports you need. Do not expose PostgreSQL to the public Internet.

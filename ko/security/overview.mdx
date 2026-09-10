@@ -1,0 +1,21 @@
+---
+title: "보안 개요"
+description: "구현된 보안 제어와 경계."
+---
+
+# 보안 개요
+
+Production startup은 placeholder/짧은 secret, 약한 DB password, `REQUIRE_AUTH=false`, `AUTH_DEV_HEADER_TRUST=true`를 거부합니다.
+
+사용자 password는 bcrypt hash로 저장됩니다. Connector credential은 별도 runtime credential 경로를 사용하고 at-rest encryption 구조를 사용합니다.
+
+중앙 HTTP authorization evaluator가 role/method/path를 검사합니다.
+
+Marketplace V1 package는 선언형이며 arbitrary executable code를 허용하지 않습니다. 개발 브랜치에는 archive safety, secret scan, digest/signature, trusted key 등이 구현되어 있습니다.
+
+현재 경계:
+- local JWT이지 enterprise SSO가 아님
+- single tenant
+- multi-node HA 미지원
+- account lockout 정책은 감사한 소스에서 지원 기능으로 확인되지 않음
+- custom deployment 시 broad CORS 설정을 검토해야 함

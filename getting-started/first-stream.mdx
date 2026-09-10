@@ -1,0 +1,46 @@
+---
+title: "First Stream"
+description: "Create a Connector, Stream, Routes, and first deployable data flow."
+---
+
+# First Stream
+
+The current product separates **Connector**, **Source**, **Stream**, **Route**, and **Destination**. This separation is intentional.
+
+## Before the Wizard
+
+Create a Connector under **Connectors**. If the integration is available through the current development Marketplace, install it first, then configure credentials separately.
+
+Package installation does **not** create credentials or start a Stream automatically.
+
+## Wizard flow
+
+### Connect
+
+Select the existing Connector and configure source access. Test the connection where the selected source supports it.
+
+### Sample
+
+Retrieve or provide sample data, select the record/event structure, and confirm checkpoint behavior.
+
+### Destinations
+
+Select one or more Destinations. Each destination creates or maps to a Route.
+
+### Route Processing
+
+Keep the shared defaults where possible. Override only the Route that needs different Transform, Protection, Classification, or Policy behavior.
+
+### Deploy
+
+Review readiness and persist the Stream/Route configuration.
+
+## Webhook ingest endpoint
+
+For a configured webhook receiver, the implemented ingest path is:
+
+```text
+POST /api/v1/ingest/webhook/{receiver_key}
+```
+
+The receiver key and authentication mode come from the configured Source. Do not invent a receiver key; use the one created by the platform.

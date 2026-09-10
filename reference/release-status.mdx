@@ -1,0 +1,32 @@
+---
+title: "Release Status"
+description: "What is tag-proven stable versus implemented on the audited development branch."
+---
+
+# Release Status
+
+This repository currently has a release-history inconsistency that public documentation must not hide.
+
+## Tag-proven stable
+
+The repository Git refs confirm a `v1.0.0` tag.
+
+The source `CHANGELOG.md` also describes `1.0.1` and `1.0.2`, and the current README labels the product “GA v1.0.2”. However, the repository ref audit performed for this site did **not** find a `v1.0.2` tag, and the GitHub Releases API returned no release objects.
+
+Therefore:
+
+| Track | Documentation treatment |
+|---|---|
+| `v1.0.0` | Tag-proven stable release |
+| `1.0.1` / `1.0.2` changelog entries | Documented release lineage, but not tag-proven by this audit |
+| `feature/post-m29-development` @ `b78aa66eebae` | Current audited development implementation |
+
+## Development implementation
+
+The audited development branch is 86 commits ahead of `main-v2` and includes later Marketplace, safe-change, troubleshooting, Connector Health, Test Before Apply, and environment-promotion work.
+
+These pages label those features **implemented in development / under validation**, not immutable stable behavior.
+
+## Operator rule
+
+Before production upgrade, pin the exact Git tag or commit you intend to run. Do not deploy an unpinned branch and assume this site guarantees identical behavior forever.

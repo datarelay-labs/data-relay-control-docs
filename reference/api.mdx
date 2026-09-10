@@ -1,0 +1,65 @@
+---
+title: "API Reference"
+description: "API surface and how to use the generated OpenAPI description."
+---
+
+# API Reference
+
+The current FastAPI application uses:
+
+```text
+/api/v1
+```
+
+as its default API prefix.
+
+## Major route groups
+
+```text
+/auth
+/admin
+/connectors
+/credentials
+/sources
+/streams
+/connectors-registry
+/audit-logs
+/backup
+/mappings
+/enrichments
+/destinations
+/routes
+/logs
+/runtime
+/ingest
+/retention
+/delivery
+/validation
+/governance
+```
+
+Safe-change and Test Before Apply endpoints are mounted under `/runtime`. Environment-promotion endpoints are mounted under `/backup`.
+
+## Health
+
+```http
+GET /health
+```
+
+returns API health plus a delivery-log index probe when PostgreSQL is reachable.
+
+## Authentication
+
+Most production API calls require a bearer access JWT from:
+
+```http
+POST /api/v1/auth/login
+```
+
+## OpenAPI
+
+FastAPI generates an OpenAPI schema from the running implementation. Treat the OpenAPI output of the exact version you operate as the authoritative endpoint/field reference.
+
+<Note>
+Historical AI modules exist in the repository, but the current application entry point explicitly does not mount AI Gateway HTTP routers as part of the Data Relay OSS product surface.
+</Note>

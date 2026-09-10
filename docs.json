@@ -1,0 +1,200 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Data Relay Control",
+  "description": "Data delivery, route processing, protection, and operational control for enterprise data flows.",
+  "colors": {
+    "primary": "#16A34A"
+  },
+  "navbar": {
+    "links": [
+      {
+        "type": "github",
+        "href": "https://github.com/datarelay-labs/gdc-platform"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Quick Start",
+      "href": "/getting-started/quickstart"
+    }
+  },
+  "search": {
+    "prompt": "Search Data Relay Control docs..."
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "canonical": "https://control.datarelay.run"
+    }
+  },
+  "metadata": {
+    "timestamp": true
+  },
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              "index",
+              "getting-started/overview",
+              "getting-started/architecture",
+              "getting-started/quickstart",
+              "getting-started/first-login",
+              "getting-started/first-stream",
+              "getting-started/data-relay-link"
+            ]
+          },
+          {
+            "group": "Administration",
+            "icon": "gear",
+            "pages": [
+              "administration/overview",
+              "administration/users-roles",
+              "administration/connectors-marketplace"
+            ]
+          },
+          {
+            "group": "Processing & Governance",
+            "icon": "route",
+            "pages": [
+              "processing/route-processing",
+              "governance/overview"
+            ]
+          },
+          {
+            "group": "Operations",
+            "icon": "screwdriver-wrench",
+            "pages": [
+              "operations/overview",
+              "operations/backup-restore",
+              "operations/upgrades",
+              "operations/troubleshooting"
+            ]
+          },
+          {
+            "group": "Deployment",
+            "icon": "server",
+            "pages": [
+              "deployment/requirements",
+              "deployment/network-tls"
+            ]
+          },
+          {
+            "group": "Security",
+            "icon": "shield-halved",
+            "pages": [
+              "security/overview",
+              "security/authentication-authorization"
+            ]
+          },
+          {
+            "group": "Reference",
+            "icon": "book",
+            "pages": [
+              "reference/configuration",
+              "reference/api",
+              "reference/cli-tools",
+              "reference/data-model",
+              "reference/release-status",
+              "reference/limitations",
+              "reference/glossary"
+            ]
+          },
+          {
+            "group": "Roadmap",
+            "icon": "map",
+            "pages": [
+              "roadmap/current-status"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ko",
+        "groups": [
+          {
+            "group": "시작하기",
+            "icon": "rocket",
+            "pages": [
+              "ko/index",
+              "ko/getting-started/overview",
+              "ko/getting-started/architecture",
+              "ko/getting-started/quickstart",
+              "ko/getting-started/first-login",
+              "ko/getting-started/first-stream",
+              "ko/getting-started/data-relay-link"
+            ]
+          },
+          {
+            "group": "관리",
+            "icon": "gear",
+            "pages": [
+              "ko/administration/overview",
+              "ko/administration/users-roles",
+              "ko/administration/connectors-marketplace"
+            ]
+          },
+          {
+            "group": "처리 & Governance",
+            "icon": "route",
+            "pages": [
+              "ko/processing/route-processing",
+              "ko/governance/overview"
+            ]
+          },
+          {
+            "group": "운영",
+            "icon": "screwdriver-wrench",
+            "pages": [
+              "ko/operations/overview",
+              "ko/operations/backup-restore",
+              "ko/operations/upgrades",
+              "ko/operations/troubleshooting"
+            ]
+          },
+          {
+            "group": "배포",
+            "icon": "server",
+            "pages": [
+              "ko/deployment/requirements",
+              "ko/deployment/network-tls"
+            ]
+          },
+          {
+            "group": "보안",
+            "icon": "shield-halved",
+            "pages": [
+              "ko/security/overview",
+              "ko/security/authentication-authorization"
+            ]
+          },
+          {
+            "group": "참고",
+            "icon": "book",
+            "pages": [
+              "ko/reference/configuration",
+              "ko/reference/api",
+              "ko/reference/cli-tools",
+              "ko/reference/data-model",
+              "ko/reference/release-status",
+              "ko/reference/limitations",
+              "ko/reference/glossary"
+            ]
+          },
+          {
+            "group": "로드맵",
+            "icon": "map",
+            "pages": [
+              "ko/roadmap/current-status"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

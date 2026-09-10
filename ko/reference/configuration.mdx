@@ -1,0 +1,25 @@
+---
+title: "환경 설정"
+description: "주요 environment variable."
+---
+
+# 환경 설정
+
+| 변수 | 용도 |
+|---|---|
+| `APP_ENV` | runtime environment |
+| `API_PREFIX` | 기본 `/api/v1` |
+| `POSTGRES_*` | PostgreSQL 설정 |
+| `DATABASE_URL` | PostgreSQL connection URL |
+| `JWT_SECRET_KEY` | JWT signing |
+| `SECRET_KEY` | application secret |
+| `ENCRYPTION_KEY` | at-rest encryption |
+| `REQUIRE_AUTH` | API/UI 인증 |
+| `AUTH_DEV_HEADER_TRUST` | 개발용 header trust |
+| `GDC_ROUTE_PROCESSING_ENABLED` | Route Processing, 기본 true |
+| `SMTP_ENABLED` | SMTP notification |
+| `GDC_TRUST_PROXY_HEADERS` | forwarded header 신뢰 |
+| `GDC_PROXY_RELOAD_TOKEN` | reverse proxy 내부 reload 인증 |
+| `ENABLE_DEV_VALIDATION_LAB` | 개발 validation 전용 |
+
+`GDC_*`는 현재 코드에 남아 있는 기술 식별자이며 제품 공개명은 Data Relay Control입니다.

@@ -1,0 +1,43 @@
+---
+title: "Backup & Restore"
+description: "PostgreSQL backup, guarded restore, and configuration boundaries."
+---
+
+# Backup & Restore
+
+The runtime datastore is PostgreSQL. Backup tooling does not alter checkpoints; restore tooling can change application state and must be treated as a maintenance operation.
+
+## Read-only database backup
+
+From the repository root:
+
+```bash
+export DATABASE_URL='postgresql://USER:PASSWORD@HOST:5432/DBNAME'
+./scripts/ops/backup-postgres.sh
+```
+
+Optional gzip:
+
+```bash
+GZIP_BACKUP=1 ./scripts/ops/backup-postgres.sh
+```
+
+Default output is under `var/backups/postgres/`.
+
+## Guarded restore
+
+```bash
+export DATABASE_URL='postgresql://USER:PASSWORD@HOST:5432/DBNAME'
+export CONFIRM_RESTORE=yes
+./scripts/ops/restore-postgres.sh /path/to/backup.dump
+```
+
+The restore script requires explicit confirmation and takes a pre-restore backup. It uses `pg_restore --no-owner --no-acl` without `--clean`.
+
+## Release-stack backup
+
+For Compose deployments, `scripts/release/backup-before-upgrade.sh` and `scripts/release/restore.sh` provide a second operator path. Release restore requires `RESTORE_CONFIRM=YES_I_UNDERSTAND` plus interactive database-name confirmation.
+
+## What database backup does not include
+
+Back up `.env`, external secret-manager values, TLS material, and other host configuration through secure configuration management. Do not place secrets in Git.

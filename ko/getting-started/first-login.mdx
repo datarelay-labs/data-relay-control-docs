@@ -1,0 +1,17 @@
+---
+title: "첫 로그인"
+description: "초기 관리자와 JWT session 동작."
+---
+
+# 첫 로그인
+
+새 설치는 기존 계정이 없을 때 `admin` 사용자를 생성합니다.
+
+- 기본값: `admin / admin`
+- 첫 로그인 시 비밀번호 변경 필수
+- `GDC_SEED_ADMIN_PASSWORD`로 초기 비밀번호 변경 가능
+- bootstrap 재실행은 기존 admin 비밀번호를 초기화하지 않음
+
+로그인은 access/refresh JWT를 발급합니다. 기본 access token은 60분, refresh token은 1440분이며 refresh 시 token pair가 회전합니다. 비밀번호 변경 또는 전체 session revoke 시 `token_version`이 증가하여 이전 token이 무효화됩니다.
+
+Production에서는 `REQUIRE_AUTH=false`가 startup 단계에서 거부됩니다.

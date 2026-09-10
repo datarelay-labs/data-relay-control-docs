@@ -1,0 +1,34 @@
+---
+title: "Operations"
+description: "Monitor data flow health and use evidence-driven operator workflows."
+---
+
+# Operations
+
+Daily operation starts with Dashboard and Streams, then drills into the affected Stream, Route, or Destination.
+
+## Runtime evidence
+
+The platform records delivery logs, route outcomes, runtime snapshots/analytics, checkpoint state, schema drift evidence, and governance/audit events.
+
+The `/health` endpoint reports API status and a delivery-log index health probe.
+
+## Development-branch operator features
+
+Current development history includes:
+
+- Data Flow Troubleshooter built from structured runtime evidence
+- safe-change impact preview and guarded apply
+- Connector/API Health derived from existing auth, credential, and delivery evidence
+- Test Before Apply impact preview
+- environment-promotion export/preview/apply
+
+These reuse existing runtime/configuration evidence rather than creating parallel monitoring or deployment engines.
+
+## Recommended drill-down
+
+```text
+Dashboard → Stream Group/Stream → Runtime evidence → Route/Destination → Action
+```
+
+Use Governance Workspace for targeted governance review rather than continuous fleet monitoring.

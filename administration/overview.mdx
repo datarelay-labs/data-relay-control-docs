@@ -1,0 +1,27 @@
+---
+title: "Administration"
+description: "Current administrative surfaces and ownership boundaries."
+---
+
+# Administration
+
+Administration covers platform users, roles, connectors, credentials, destinations, backup/import, network/TLS settings, and package administration.
+
+## Current UI surfaces
+
+| Area | Typical UI location |
+|---|---|
+| Users and roles | Settings / Administration |
+| Connectors | Connectors |
+| Credentials | Settings / Connector flows |
+| Destinations | Destinations |
+| Routes | Stream or Destination drill-down |
+| Backup/import | Backup & Import |
+| Audit logs | Settings / Audit |
+| Marketplace registries | Administration / Marketplace registries in current development branch |
+
+Routes are not a separate top-level operating model; they are destination-specific processing units tied to Streams.
+
+## Single-instance assumption
+
+The documented GA product is single-node/single-tenant oriented. Multi-node cluster orchestration is not a supported current deployment model.

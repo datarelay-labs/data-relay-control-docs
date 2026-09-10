@@ -1,0 +1,27 @@
+---
+title: "백업 & 복구"
+description: "PostgreSQL 백업과 보호된 restore 절차."
+---
+
+# 백업 & 복구
+
+읽기 전용 DB 백업:
+
+```bash
+export DATABASE_URL='postgresql://USER:PASSWORD@HOST:5432/DBNAME'
+./scripts/ops/backup-postgres.sh
+```
+
+Restore:
+
+```bash
+export DATABASE_URL='postgresql://USER:PASSWORD@HOST:5432/DBNAME'
+export CONFIRM_RESTORE=yes
+./scripts/ops/restore-postgres.sh /path/to/backup.dump
+```
+
+Restore는 명시적 확인을 요구하고 pre-restore backup을 먼저 수행합니다.
+
+Compose release 경로에는 `scripts/release/backup-before-upgrade.sh`와 `scripts/release/restore.sh`도 있습니다.
+
+DB backup에는 `.env`, 외부 secret, TLS key 등 host 설정이 포함되지 않습니다. 별도로 안전하게 보관해야 합니다.

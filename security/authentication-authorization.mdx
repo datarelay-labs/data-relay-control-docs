@@ -1,0 +1,34 @@
+---
+title: "Authentication & Authorization"
+description: "JWT session behavior, password handling, token invalidation, and RBAC."
+---
+
+# Authentication & Authorization
+
+## Authentication
+
+`POST /api/v1/auth/login` verifies a local platform user and returns access and refresh JWTs.
+
+Invalid credentials return a generic `USER_AUTH_FAILED` result without revealing whether the username exists.
+
+Passwords are stored as bcrypt hashes.
+
+## Token lifecycle
+
+- signing algorithm: HS256 in current configuration
+- access-token default: 60 minutes
+- refresh-token default: 1440 minutes
+- refresh rotates the token pair
+- `token_version` invalidates old tokens after password changes or explicit all-session revocation
+
+A normal logout is client-side token discard plus audit. `revoke_all=true` increments the token version and invalidates other issued sessions on their next validation.
+
+## Authorization
+
+The central route-access layer applies coarse RBAC. High-impact operations such as user administration, trusted signing-key changes, environment-promotion apply, and configuration snapshot apply require Administrator.
+
+Viewer can execute a small set of read-only preview POSTs, such as safe-change or Test Before Apply preview, without mutation permission.
+
+## Authentication-disabled mode
+
+When `REQUIRE_AUTH=false`, development tooling can use an implicit unauthenticated context. Production startup rejects that setting; it must not be used for exposed production systems.
