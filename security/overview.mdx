@@ -1,0 +1,40 @@
+---
+title: "Security Overview"
+description: "Implementation-driven security controls and explicit boundaries."
+---
+
+# Security Overview
+
+Security claims in this documentation describe implemented controls, not a generic “secure by design” label.
+
+## Production startup checks
+
+Production startup fails when it detects:
+
+- missing or known-placeholder core secrets
+- core secrets shorter than the enforced minimum
+- an insecure PostgreSQL password
+- `REQUIRE_AUTH=false`
+- `AUTH_DEV_HEADER_TRUST=true`
+
+## Credential storage
+
+Passwords are hashed with bcrypt. Runtime connector credentials use the platform credential/secret-resolution path and are encrypted at rest in the current architecture.
+
+Marketplace packages are scanned to prevent embedded secrets.
+
+## API authorization
+
+A central HTTP authorization evaluator applies role, method, and path rules. Viewer is read-only except for explicitly non-persisting preview endpoints; sensitive administrative writes require Administrator.
+
+## Marketplace boundary
+
+Current V1 packages are declarative. Arbitrary package-supplied executable code is not allowed. Package validation covers archive safety, secret scanning, digests/signatures, and trust policy in the development implementation.
+
+## Known boundaries
+
+- local JWT auth is not enterprise SSO
+- current deployment is single-tenant
+- no multi-node HA control plane
+- CORS configuration in the current FastAPI application is broad; operators should keep the browser entry point behind the intended reverse proxy and review cross-origin exposure before custom deployments
+- account-lockout behavior is not documented as a supported control; protect the login endpoint at the deployment boundary as appropriate

@@ -1,0 +1,36 @@
+---
+title: "Connectors & Marketplace"
+description: "Connector registry, package lifecycle, trust, and development-branch Marketplace capabilities."
+---
+
+# Connectors & Marketplace
+
+A Connector is a connection family. A Source Pack is declarative integration content. Neither is a runtime execution process.
+
+## Package model
+
+The current package architecture is declarative. It can describe request contracts, auth requirements, pagination/cursors, mapping/enrichment, fixtures, expected output, compatibility, and documentation.
+
+Package files must not contain credentials or arbitrary Python, JavaScript, shell, or native executable code in the V1 model.
+
+## Development-branch capabilities
+
+The audited development history contains implemented work for:
+
+- Manifest v2 compatibility
+- unified built-in/installed registry
+- local install, upgrade, rollback, and uninstall
+- package validation and cache invalidation
+- secret scanning, canonical digest, Ed25519 signature verification, trusted signing keys
+- license/provenance policy
+- static Connector Harvester
+- AI Connector Builder core
+- Marketplace UI
+- private/remote registry administration and SSRF-safe acquisition paths
+- offline signed bundle installation
+
+These capabilities are **implemented in development**, but this documentation does not label them as tag-proven stable release behavior.
+
+## Lifecycle invariant
+
+Install does not silently create a credential, enable a Stream, modify a running Stream, or advance a checkpoint. Operator action remains explicit.

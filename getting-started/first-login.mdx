@@ -1,0 +1,23 @@
+---
+title: "First Login"
+description: "Bootstrap administrator behavior and the mandatory first-password change."
+---
+
+# First Login
+
+A fresh install creates the local `admin` account if it does not already exist.
+
+- Default bootstrap credentials: `admin` / `admin`
+- A first-login password change is mandatory.
+- `GDC_SEED_ADMIN_PASSWORD` can provide a different bootstrap password.
+- Re-running bootstrap does not reset an existing administrator password.
+
+## Session behavior
+
+Login returns an access JWT and a refresh JWT. Access tokens are short-lived; the default source configuration is 60 minutes for access and 24 hours for refresh. Refresh rotates the token pair.
+
+Changing your password increments the account token version, invalidating previously issued tokens for that user.
+
+## Production requirement
+
+Production startup rejects `REQUIRE_AUTH=false`, development-header trust, placeholder secrets, and known insecure secret values. Do not bypass the first-login flow by disabling authentication.

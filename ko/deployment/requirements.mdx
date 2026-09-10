@@ -1,0 +1,20 @@
+---
+title: "배포 요구사항"
+description: "현재 설치/운영에 필요한 host와 database 기준."
+---
+
+# 배포 요구사항
+
+자동 Docker 설치는 **Ubuntu 24.04** 기준입니다. 다른 Linux는 Docker Engine + Compose v2를 직접 설치해야 합니다.
+
+Database는 PostgreSQL만 지원합니다.
+
+현재 installer 기본 preflight:
+- 최소 2 GiB RAM
+- repository 아래 최소 10 GiB free disk
+- 필요한 port 사용 여부
+- Docker daemon 접근
+
+이는 최소 설치 조건이지 production sizing 기준은 아닙니다.
+
+현재 지원 모델은 single platform instance입니다. Multi-node HA/cluster는 현재 GA 지원 범위가 아닙니다.

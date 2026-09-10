@@ -1,0 +1,39 @@
+---
+title: "Overview"
+description: "Understand the current scope and operating model of Data Relay Control."
+---
+
+# Overview
+
+Data Relay Control sits in the **data path**. It does not only configure other relays: the current runtime fetches or receives events, transforms them, evaluates controls, delivers them, and advances checkpoints after the required delivery outcome.
+
+The core entities are:
+
+| Entity | Responsibility |
+|---|---|
+| Connector | Connection family and authentication capability |
+| Credential | Runtime secret-bearing authentication object |
+| Source | Concrete source configuration |
+| Stream | Runtime execution and checkpoint ownership |
+| Route | Destination-specific processing and delivery |
+| Destination | Concrete delivery target |
+| Source Pack | Declarative integration content; not a runtime process |
+
+## Primary operator workflow
+
+1. Create or install an integration/Connector.
+2. Configure credentials and source access.
+3. Create a Stream.
+4. Collect a sample and confirm the record structure.
+5. Select one or more Destinations.
+6. Configure Route Processing where destinations need different handling.
+7. Deploy.
+8. Monitor Dashboard, Streams, runtime evidence, and governance surfaces.
+
+## Source types proven in the current product line
+
+The repository documents and implements HTTP API polling and webhook receiver sources. A PostgreSQL runtime path is also implemented for database-query sources. Additional adapters may exist, but this site only promotes paths that can be proven from the audited source.
+
+## Product naming
+
+Public documentation uses **Data Relay Control** consistently. Some technical identifiers in the source still use `gdc`, such as the repository name, environment-variable prefixes, Docker object names, and database defaults. Those identifiers are preserved where changing them would make commands inaccurate.

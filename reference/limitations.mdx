@@ -1,0 +1,41 @@
+---
+title: "Known Limitations"
+description: "Implementation-derived limitations and operational boundaries."
+---
+
+# Known Limitations
+
+## Deployment and scale
+
+- Current product is single-instance/single-tenant oriented.
+- Multi-node HA/cluster orchestration is not a supported GA deployment model.
+- Governance Workspace performs multiple effective-state calls per Route and becomes expensive at larger Route counts.
+- Streams console per-stream stats/health still scales with stream count; 50–100 Streams require operational care.
+
+## Route Processing
+
+Incomplete Classification/Protection override payloads can appear as **Intent only** at deploy and may require a complete save in Route Edit.
+
+## Sources and transforms
+
+- Database Query runtime is PostgreSQL-centric.
+- Expert transform supports `regex_extract`; `regex_replace` is not part of the documented MVP.
+- Unknown fields default to pass-through unless policy changes that behavior.
+
+## Authentication
+
+- Local JWT/RBAC is implemented.
+- Enterprise SAML/OIDC/SCIM/federation is not current product scope.
+- No supported account-lockout policy was proven in the audited source.
+
+## Marketplace
+
+Development branch contains Marketplace UI, package lifecycle, trust, remote/private registry, and offline bundle work. These are not presented as tag-proven stable release behavior.
+
+## Data Relay Link
+
+There is no implemented Control↔Link management protocol in the audited source.
+
+## UI screenshots
+
+Current screenshots were not generated during this documentation build because no live product instance was available to the documentation process. Required captures are tracked in `images/screenshots/README.md`.

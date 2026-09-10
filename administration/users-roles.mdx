@@ -1,0 +1,28 @@
+---
+title: "Users & Roles"
+description: "Local authentication and coarse-grained role authorization."
+---
+
+# Users & Roles
+
+Data Relay Control uses local platform users and JWT sessions. It is not an enterprise identity provider.
+
+## Main platform roles
+
+The central HTTP authorization layer recognizes Administrator, Operator, and Viewer behavior, with additional governance-specific roles/capabilities.
+
+**Administrator** can perform security-sensitive administration such as user management, trusted signing-key changes, environment-promotion apply, and destructive/wide-blast configuration actions.
+
+**Operator** can manage normal workspace and package-lifecycle operations, subject to endpoint policy.
+
+**Viewer** is read-only except for explicitly non-persisting preview operations.
+
+## Not supported as current product scope
+
+- SAML
+- OIDC federation/SSO as enterprise IAM
+- SCIM
+- identity federation
+- user lifecycle provisioning from an external IdP
+
+These capabilities must not be inferred from the existence of local JWT authentication.

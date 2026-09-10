@@ -1,0 +1,25 @@
+---
+title: "첫 Stream"
+description: "Connector부터 Route/Destination까지 첫 데이터 흐름 만들기."
+---
+
+# 첫 Stream
+
+현재 제품은 Connector, Source, Stream, Route, Destination을 분리합니다.
+
+1. **Connectors**에서 Connector를 생성하거나 개발 브랜치 Marketplace에서 package를 설치합니다.
+2. Credential을 별도로 구성합니다.
+3. **Streams → Create First Stream**을 엽니다.
+4. Connect에서 기존 Connector와 Source 접근을 설정합니다.
+5. Sample에서 이벤트 구조를 확인합니다.
+6. Destinations에서 하나 이상의 Destination을 선택합니다.
+7. Route Processing에서 목적지별 차이가 필요한 Route만 Override합니다.
+8. Deploy 후 Dashboard/Streams에서 상태를 확인합니다.
+
+Webhook Source가 구성된 경우 실제 ingest endpoint는 다음과 같습니다.
+
+```text
+POST /api/v1/ingest/webhook/{receiver_key}
+```
+
+`receiver_key`는 플랫폼이 만든 실제 설정값을 사용해야 합니다.

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#f8fafc"/>
+<rect x="80" y="80" width="1280" height="740" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+<text x="720" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="42" fill="#334155">Marketplace</text>
+<text x="720" y="490" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#64748b">Current product screenshot required</text>
+</svg>

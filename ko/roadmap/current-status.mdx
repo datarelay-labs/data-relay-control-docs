@@ -1,0 +1,28 @@
+---
+title: "현재 상태 & 로드맵"
+description: "계획과 구현을 분리한 현재 상태."
+---
+
+# 현재 상태 & 로드맵
+
+## 감사한 개발 브랜치에서 구현됨
+
+Stream/Route runtime, Route Processing, JWT/RBAC, credential encryption architecture, schema/sensitive control, Protection/Classification/Policy/Quarantine/Replay, Dashboard/runtime evidence, Marketplace package lifecycle/security, Harvester, AI Builder core, Marketplace UI, private/remote registry, offline signed bundle, Data Flow Troubleshooter, Safe Change, Connector/API Health, Test Before Apply, Environment Promotion.
+
+기준: `feature/post-m29-development` @ `b78aa66eebae`.
+
+## 구현되었지만 stable로 확정하지 않음
+
+Tag로 확인되지 않은 개발 브랜치 전용 기능 전체.
+
+## 제한적/실험적
+
+AI Builder의 production external-network provider는 core 구현과 별개이며 자동 제공된다고 가정하지 않습니다. Fluent Bit/Telegraf harvester는 감사 이력에서 fixture/skeleton 수준이 포함됩니다.
+
+## 현재 지원하지 않음
+
+- multi-node HA
+- enterprise IAM/SSO federation
+- Data Relay Link 중앙 관리 통합
+- arbitrary executable Marketplace plugin
+- AI Gateway / AI Proxy 제품 surface

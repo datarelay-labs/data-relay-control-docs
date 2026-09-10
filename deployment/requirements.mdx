@@ -1,0 +1,31 @@
+---
+title: "Deployment Requirements"
+description: "Host, database, Docker, and scale assumptions for current deployments."
+---
+
+# Deployment Requirements
+
+## Supported installation baseline
+
+The release installer can automatically install Docker on **Ubuntu 24.04**. On other Linux distributions, install Docker Engine and the Compose v2 plugin manually.
+
+The application database is **PostgreSQL only**.
+
+## Installer preflight defaults
+
+The current installer checks at least:
+
+- 2 GiB host RAM
+- 10 GiB free disk under the repository
+- required published ports
+- Docker Engine/daemon access
+
+These are installer minimums, not sizing guidance for production workloads.
+
+## Deployment topology
+
+The current supported model is a single platform instance with PostgreSQL, API/runtime components, frontend, and reverse proxy. Multi-node clustering/HA is not a current supported GA deployment model.
+
+## Production database
+
+The repository ships a bundled PostgreSQL service for convenience. For production, protect the database as an internal service and apply normal PostgreSQL backup, monitoring, and access-control practices.

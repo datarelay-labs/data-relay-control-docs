@@ -1,0 +1,35 @@
+---
+title: "Configuration"
+description: "Key environment variables and current configuration contracts."
+---
+
+# Configuration
+
+The source repository ships `.env.example`. Preserve the actual variable names below.
+
+| Variable | Purpose |
+|---|---|
+| `APP_ENV` | Runtime environment; production activates fail-closed checks |
+| `API_PREFIX` | API base path; default `/api/v1` |
+| `POSTGRES_DB` | PostgreSQL database |
+| `POSTGRES_USER` | PostgreSQL role |
+| `POSTGRES_PASSWORD` | PostgreSQL password |
+| `DATABASE_URL` | API/runtime PostgreSQL URL |
+| `JWT_SECRET_KEY` | JWT signing secret |
+| `SECRET_KEY` | Application secret |
+| `ENCRYPTION_KEY` | Encryption-at-rest key |
+| `REQUIRE_AUTH` | Enable authenticated API/UI access |
+| `AUTH_DEV_HEADER_TRUST` | Development header-trust switch; false in production |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | Access-token lifetime |
+| `REFRESH_TOKEN_EXPIRE_MINUTES` | Refresh-token lifetime |
+| `GDC_ROUTE_PROCESSING_ENABLED` | Route Processing runtime switch; default true |
+| `SMTP_ENABLED` | Enable SMTP notifications |
+| `GDC_TRUST_PROXY_HEADERS` | Trust forwarded proxy headers |
+| `GDC_PROXY_FORWARD_TRUSTED_HOSTS` | Forwarded-header trusted hosts |
+| `GDC_PROXY_RELOAD_TOKEN` | Internal reverse-proxy reload authentication |
+| `GDC_PUBLIC_HTTPS_PORT` | Public HTTPS port used in generated/configured URLs |
+| `ENABLE_DEV_VALIDATION_LAB` | Development validation only; false in production |
+
+<Warning>
+The `GDC_*` prefix is a technical source-code identifier retained for command accuracy. The public product name is Data Relay Control.
+</Warning>
