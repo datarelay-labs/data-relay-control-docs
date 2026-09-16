@@ -7,6 +7,10 @@ description: "엔터프라이즈 데이터 흐름을 수집·변환·보호·전
 
 Data Relay Control은 현재 [`datarelay-labs/gdc-platform`](https://github.com/datarelay-labs/gdc-platform)에 구현된 소프트웨어의 공개 제품명입니다. 현재 코드는 단순 관리 서버가 아니라 **Enterprise Data Control Gateway**로 동작합니다. 데이터를 수집하고, 필요한 처리를 적용한 뒤, 하나 이상의 목적지로 전달합니다.
 
+<Warning>
+**Source Available — Open Source가 아닙니다.** 개인 사용, 교육/연구, 평가, 기업·기관의 자체 업무 목적 사용, 내부 수정, 고객 소유 환경 배포는 무료입니다. 재판매, OEM/임베딩, 화이트라벨, 상업적 재배포, 파생 상용 제품, Data Relay 기능의 SaaS/MSP 제공, 경쟁 제품·서비스 개발에는 Data Relay Labs의 별도 서면 상업 라이선스가 필요합니다. 자세한 내용은 [라이선스](/ko/reference/license)를 참고하십시오.
+</Warning>
+
 <Note>
 이 문서는 `feature/post-m29-development`의 `b78aa66eebae`를 현재 개발 구현 기준으로 감사했습니다. 안정 릴리스와 개발 브랜치 기능은 구분해서 표기합니다.
 </Note>
@@ -33,3 +37,5 @@ Stream은 실행과 체크포인트를 소유하고, Route는 목적지별 Trans
 Data Relay Control은 VPN, 일반 RMM, SASE, SIEM, SOAR, Data Lake, Enterprise IAM 제품이 아닙니다.
 
 또한 현재 소스에는 **Data Relay Link 등록·heartbeat·정책 배포·상태 동기화 프로토콜이 없습니다.** 따라서 Data Relay Link의 중앙 관리 서버라고 설명하지 않습니다. 자세한 내용은 [Data Relay Link 관계](/ko/getting-started/data-relay-link)를 참고하십시오.
+
+라이선스 조건과 허용/금지 예시는 [라이선스](/ko/reference/license)에서 확인할 수 있습니다.
