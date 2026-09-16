@@ -102,6 +102,7 @@
               "reference/data-model",
               "reference/release-status",
               "reference/limitations",
+              "reference/license",
               "reference/glossary"
             ]
           },
@@ -183,6 +184,7 @@
               "ko/reference/data-model",
               "ko/reference/release-status",
               "ko/reference/limitations",
+              "ko/reference/license",
               "ko/reference/glossary"
             ]
           },
@@ -204,4 +206,3 @@
   },
   "favicon": "/favicon.svg"
 }
-
